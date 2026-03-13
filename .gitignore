@@ -1,6 +1,7 @@
 # Data and models
 data/
 models/
+model/
 VC-ACT/models/
 
 # Nested git repos
