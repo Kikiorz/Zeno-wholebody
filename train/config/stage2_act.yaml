@@ -1,0 +1,51 @@
+# Stage2 ACT Training Config
+# 用法: cd /workspace/Zeno-wholebody && python train/run_train.py --config train/config/stage2_act.yaml
+
+runtime:
+  command: "lerobot-train"
+  check_command: true
+  cwd: "."
+  dry_run: false
+  env:
+    CUDA_VISIBLE_DEVICES: "1"
+
+variables:
+  dataset_root: "/workspace/Zeno-wholebody/data/Exp_stageAB"
+  output_root: "/workspace/Zeno-wholebody/model"
+  run_name: "stage2_act"
+
+train_args:
+  dataset:
+    repo_id: "stage2_lerobot"
+    root: "{dataset_root}/stage2_lerobot"
+    video_backend: "torchcodec"
+
+  policy:
+    type: "act"
+    device: "cuda"
+    repo_id: "local/{run_name}"
+    push_to_hub: false
+    use_amp: true
+    n_obs_steps: 1
+    chunk_size: 100
+    n_action_steps: 100
+    vision_backbone: "resnet34"
+    pretrained_backbone_weights: "ResNet34_Weights.IMAGENET1K_V1"
+    dim_model: 512
+    dim_feedforward: 3200
+    n_encoder_layers: 4
+    n_decoder_layers: 1
+
+  steps: 100000
+  batch_size: 32
+  num_workers: 8
+  save_freq: 20000
+  log_freq: 200
+
+  wandb:
+    mode: "disabled"
+
+  output_dir: "{output_root}/{run_name}"
+
+flags: []
+raw_args: []
