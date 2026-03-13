@@ -1,0 +1,122 @@
+{
+  "cluster0": [
+    "pick_hanger_008.bag",
+    "pick_hanger_016.bag",
+    "pick_hanger_018.bag",
+    "pick_hanger_020.bag",
+    "pick_hanger_023.bag",
+    "pick_hanger_035.bag"
+  ],
+  "cluster1": [
+    "pick_hanger_049.bag",
+    "pick_hanger_051.bag",
+    "pick_hanger_052.bag",
+    "pick_hanger_053.bag",
+    "pick_hanger_054.bag",
+    "pick_hanger_063.bag",
+    "pick_hanger_064.bag",
+    "pick_hanger_065.bag",
+    "pick_hanger_066.bag",
+    "pick_hanger_067.bag",
+    "pick_hanger_068.bag",
+    "pick_hanger_069.bag",
+    "pick_hanger_070.bag",
+    "pick_hanger_071.bag",
+    "pick_hanger_072.bag",
+    "pick_hanger_081.bag"
+  ],
+  "cluster2": [
+    "pick_hanger_001.bag",
+    "pick_hanger_003.bag",
+    "pick_hanger_011.bag",
+    "pick_hanger_012.bag",
+    "pick_hanger_013.bag",
+    "pick_hanger_015.bag",
+    "pick_hanger_017.bag",
+    "pick_hanger_019.bag",
+    "pick_hanger_021.bag",
+    "pick_hanger_032.bag",
+    "pick_hanger_034.bag",
+    "pick_hanger_041.bag",
+    "pick_hanger_042.bag",
+    "pick_hanger_046.bag"
+  ],
+  "cluster3": [
+    "pick_hanger_089.bag",
+    "pick_hanger_090.bag",
+    "pick_hanger_092.bag",
+    "pick_hanger_093.bag",
+    "pick_hanger_094.bag"
+  ],
+  "cluster4": [
+    "pick_hanger_050.bag",
+    "pick_hanger_080.bag",
+    "pick_hanger_082.bag",
+    "pick_hanger_083.bag",
+    "pick_hanger_084.bag",
+    "pick_hanger_085.bag",
+    "pick_hanger_086.bag",
+    "pick_hanger_087.bag",
+    "pick_hanger_088.bag"
+  ],
+  "cluster5": [
+    "pick_hanger_000.bag",
+    "pick_hanger_004.bag",
+    "pick_hanger_006.bag",
+    "pick_hanger_007.bag"
+  ],
+  "cluster6": [
+    "pick_hanger_095.bag",
+    "pick_hanger_096.bag",
+    "pick_hanger_097.bag",
+    "pick_hanger_098.bag",
+    "pick_hanger_099.bag"
+  ],
+  "cluster7": [
+    "pick_hanger_009.bag",
+    "pick_hanger_010.bag",
+    "pick_hanger_014.bag",
+    "pick_hanger_033.bag",
+    "pick_hanger_036.bag",
+    "pick_hanger_037.bag",
+    "pick_hanger_038.bag",
+    "pick_hanger_039.bag",
+    "pick_hanger_040.bag",
+    "pick_hanger_043.bag",
+    "pick_hanger_044.bag",
+    "pick_hanger_045.bag",
+    "pick_hanger_047.bag",
+    "pick_hanger_048.bag",
+    "pick_hanger_091.bag"
+  ],
+  "cluster8": [
+    "pick_hanger_002.bag",
+    "pick_hanger_005.bag",
+    "pick_hanger_022.bag",
+    "pick_hanger_024.bag",
+    "pick_hanger_025.bag",
+    "pick_hanger_026.bag",
+    "pick_hanger_027.bag",
+    "pick_hanger_028.bag",
+    "pick_hanger_029.bag",
+    "pick_hanger_030.bag",
+    "pick_hanger_031.bag"
+  ],
+  "cluster9": [
+    "pick_hanger_055.bag",
+    "pick_hanger_056.bag",
+    "pick_hanger_057.bag",
+    "pick_hanger_058.bag",
+    "pick_hanger_059.bag",
+    "pick_hanger_060.bag",
+    "pick_hanger_061.bag",
+    "pick_hanger_062.bag",
+    "pick_hanger_073.bag",
+    "pick_hanger_074.bag",
+    "pick_hanger_075.bag",
+    "pick_hanger_076.bag",
+    "pick_hanger_077.bag",
+    "pick_hanger_078.bag",
+    "pick_hanger_079.bag"
+  ]
+}

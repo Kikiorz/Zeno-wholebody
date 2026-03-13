@@ -1,0 +1,37 @@
+nohup: ignoring input
+[03-04 13:52:44] ==========================================
+[03-04 13:52:44] VC-ACT Scheduler started
+[03-04 13:52:44] Total tasks: 14 (12 ACT + 2 classifier)
+[03-04 13:52:44] GPUs: 0 1 2 3 (auto-detect free GPUs)
+[03-04 13:52:44] ==========================================
+[03-04 13:52:44] Started ACT [k10_c0] on GPU 1, PID=2804288
+[03-04 13:52:45] Started ACT [k10_c1] on GPU 2, PID=2804296
+[03-04 13:52:45] Started ACT [k10_c2] on GPU 3, PID=2804304
+[03-04 15:48:57] GPU 3 finished: k10_c2 (PID 2804304)
+[03-04 15:48:57] Started ACT [k10_c3] on GPU 3, PID=2893427
+[03-04 15:50:27] GPU 1 finished: k10_c0 (PID 2804288)
+[03-04 15:50:27] Started ACT [k10_c4] on GPU 1, PID=2894949
+[03-04 15:51:27] GPU 2 finished: k10_c1 (PID 2804296)
+[03-04 15:51:27] Started ACT [k10_c5] on GPU 2, PID=2896156
+[03-04 17:36:38] Started ACT [k10_c6] on GPU 0, PID=2991763
+[03-04 17:47:38] GPU 3 finished: k10_c3 (PID 2893427)
+[03-04 17:47:38] Started ACT [k10_c7] on GPU 3, PID=3000180
+[03-04 17:50:08] GPU 2 finished: k10_c5 (PID 2896156)
+[03-04 17:50:08] Started ACT [k10_c8] on GPU 2, PID=3002188
+[03-04 17:50:38] GPU 1 finished: k10_c4 (PID 2894949)
+[03-04 17:50:38] Started ACT [k10_c9] on GPU 1, PID=3002814
+[03-04 19:35:09] GPU 0 finished: k10_c6 (PID 2991763)
+[03-04 19:35:09] Started ACT [auto_c0] on GPU 0, PID=3060351
+[03-04 19:45:09] GPU 3 finished: k10_c7 (PID 3000180)
+[03-04 19:45:09] Started ACT [auto_c1] on GPU 3, PID=3065372
+[03-04 19:47:09] GPU 2 finished: k10_c8 (PID 3002188)
+[03-04 19:47:09] Started classifier [cls_k10] on GPU 2, PID=3066704
+[03-04 19:48:39] GPU 2 finished: cls_k10 (PID 3066704)
+[03-04 19:48:39] Started classifier [cls_auto] on GPU 2, PID=3067538
+[03-04 19:49:39] GPU 1 finished: k10_c9 (PID 3002814)
+[03-04 19:50:09] GPU 2 finished: cls_auto (PID 3067538)
+[03-04 21:29:29] GPU 0 finished: auto_c0 (PID 3060351)
+[03-04 21:40:03] GPU 3 finished: auto_c1 (PID 3065372)
+[03-04 21:40:03] ==========================================
+[03-04 21:40:03] All tasks completed!
+[03-04 21:40:03] ==========================================

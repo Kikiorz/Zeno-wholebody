@@ -1,0 +1,47 @@
+# Pick Mix ACT Training Config
+# 用法: cd /workspace/Mult-skill\ ACT && python train/run_train.py --config train/config/pick_mix_act.yaml
+
+runtime:
+  command: "/venv/mult-act/bin/lerobot-train"
+  check_command: true
+  cwd: "."
+  dry_run: false
+  env:
+    CUDA_VISIBLE_DEVICES: "1"
+    WANDB_API_KEY: "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"
+
+variables:
+  dataset_id: "26-03-01-pick-mix"
+  dataset_root: "/workspace/Mult-skill ACT/data"
+  output_root: "/workspace/Mult-skill ACT/models"
+  run_name: "pick_mix_act"
+
+train_args:
+  dataset:
+    repo_id: "{dataset_id}"
+    root: "{dataset_root}/{dataset_id}"
+    video_backend: "torchcodec"
+
+  policy:
+    type: "act"
+    device: "cuda"
+    repo_id: "local/{run_name}"
+    push_to_hub: false
+    use_amp: true
+    n_obs_steps: 1
+    chunk_size: 100
+    n_action_steps: 100
+
+  steps: 100010
+  batch_size: 8
+  num_workers: 16
+  save_freq: 20000
+  log_freq: 200
+
+  wandb:
+    mode: "disabled"
+
+  output_dir: "{output_root}/{run_name}"
+
+flags: []
+raw_args: []

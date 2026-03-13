@@ -1,0 +1,70 @@
+Device: cuda
+Mode: k10, num_classes=10, total_bags=100
+Label distribution: [6, 16, 14, 5, 9, 4, 5, 15, 11, 15]
+Pre-loading first frames from bags...
+  [20/100]
+  [40/100]
+  [60/100]
+  [80/100]
+  [100/100]
+Loaded 100 episodes
+Train: 80, Val: 20
+Epoch 001/50 | Train Loss: 2.5108 Acc: 0.2250 | Val Loss: 2.5465 Acc: 0.3000 | LR: 0.000999
+  -> Saved best (val_acc=0.3000)
+Epoch 002/50 | Train Loss: 1.8814 Acc: 0.3500 | Val Loss: 1.8926 Acc: 0.4500 | LR: 0.000996
+  -> Saved best (val_acc=0.4500)
+Epoch 003/50 | Train Loss: 1.2911 Acc: 0.6250 | Val Loss: 1.7725 Acc: 0.6000 | LR: 0.000991
+  -> Saved best (val_acc=0.6000)
+Epoch 004/50 | Train Loss: 0.9708 Acc: 0.7250 | Val Loss: 1.3103 Acc: 0.5500 | LR: 0.000984
+Epoch 005/50 | Train Loss: 0.7628 Acc: 0.7750 | Val Loss: 1.3544 Acc: 0.6000 | LR: 0.000976
+Epoch 006/50 | Train Loss: 0.4627 Acc: 0.8750 | Val Loss: 0.9944 Acc: 0.7000 | LR: 0.000965
+  -> Saved best (val_acc=0.7000)
+Epoch 007/50 | Train Loss: 0.4231 Acc: 0.8750 | Val Loss: 1.0869 Acc: 0.7000 | LR: 0.000952
+Epoch 008/50 | Train Loss: 0.3090 Acc: 0.9375 | Val Loss: 1.6873 Acc: 0.6500 | LR: 0.000938
+Epoch 009/50 | Train Loss: 0.2615 Acc: 0.9250 | Val Loss: 1.3826 Acc: 0.6500 | LR: 0.000922
+Epoch 010/50 | Train Loss: 0.1983 Acc: 0.9750 | Val Loss: 2.1120 Acc: 0.5500 | LR: 0.000905
+Epoch 011/50 | Train Loss: 0.1380 Acc: 0.9875 | Val Loss: 1.7317 Acc: 0.6500 | LR: 0.000885
+Epoch 012/50 | Train Loss: 0.1427 Acc: 0.9625 | Val Loss: 1.3431 Acc: 0.6000 | LR: 0.000864
+Epoch 013/50 | Train Loss: 0.1062 Acc: 0.9750 | Val Loss: 0.9044 Acc: 0.7000 | LR: 0.000842
+Epoch 014/50 | Train Loss: 0.0922 Acc: 0.9750 | Val Loss: 0.8130 Acc: 0.7500 | LR: 0.000819
+  -> Saved best (val_acc=0.7500)
+Epoch 015/50 | Train Loss: 0.0867 Acc: 0.9750 | Val Loss: 1.1685 Acc: 0.6500 | LR: 0.000794
+Epoch 016/50 | Train Loss: 0.0978 Acc: 0.9750 | Val Loss: 1.1042 Acc: 0.6500 | LR: 0.000768
+Epoch 017/50 | Train Loss: 0.0629 Acc: 0.9875 | Val Loss: 0.8684 Acc: 0.7000 | LR: 0.000741
+Epoch 018/50 | Train Loss: 0.0714 Acc: 0.9875 | Val Loss: 0.9838 Acc: 0.7500 | LR: 0.000713
+Epoch 019/50 | Train Loss: 0.0754 Acc: 0.9875 | Val Loss: 0.9554 Acc: 0.7500 | LR: 0.000684
+Epoch 020/50 | Train Loss: 0.0276 Acc: 1.0000 | Val Loss: 1.2935 Acc: 0.7000 | LR: 0.000655
+Epoch 021/50 | Train Loss: 0.0578 Acc: 0.9875 | Val Loss: 1.4412 Acc: 0.8000 | LR: 0.000624
+  -> Saved best (val_acc=0.8000)
+Epoch 022/50 | Train Loss: 0.0379 Acc: 0.9875 | Val Loss: 1.9950 Acc: 0.6000 | LR: 0.000594
+Epoch 023/50 | Train Loss: 0.0441 Acc: 0.9875 | Val Loss: 2.0115 Acc: 0.6500 | LR: 0.000563
+Epoch 024/50 | Train Loss: 0.0521 Acc: 1.0000 | Val Loss: 1.7330 Acc: 0.6500 | LR: 0.000531
+Epoch 025/50 | Train Loss: 0.1724 Acc: 0.9375 | Val Loss: 1.4443 Acc: 0.6500 | LR: 0.000500
+Epoch 026/50 | Train Loss: 0.0294 Acc: 0.9875 | Val Loss: 2.4851 Acc: 0.6500 | LR: 0.000469
+Epoch 027/50 | Train Loss: 0.0639 Acc: 0.9875 | Val Loss: 2.1496 Acc: 0.6500 | LR: 0.000437
+Epoch 028/50 | Train Loss: 0.0333 Acc: 1.0000 | Val Loss: 1.4286 Acc: 0.7000 | LR: 0.000406
+Epoch 029/50 | Train Loss: 0.0333 Acc: 0.9875 | Val Loss: 1.3482 Acc: 0.7500 | LR: 0.000376
+Epoch 030/50 | Train Loss: 0.0166 Acc: 1.0000 | Val Loss: 1.2130 Acc: 0.7500 | LR: 0.000345
+Epoch 031/50 | Train Loss: 0.1151 Acc: 0.9500 | Val Loss: 1.2654 Acc: 0.7000 | LR: 0.000316
+Epoch 032/50 | Train Loss: 0.0254 Acc: 1.0000 | Val Loss: 1.4975 Acc: 0.6500 | LR: 0.000287
+Epoch 033/50 | Train Loss: 0.0837 Acc: 0.9750 | Val Loss: 1.6170 Acc: 0.6500 | LR: 0.000259
+Epoch 034/50 | Train Loss: 0.0410 Acc: 0.9875 | Val Loss: 1.4725 Acc: 0.6500 | LR: 0.000232
+Epoch 035/50 | Train Loss: 0.0126 Acc: 1.0000 | Val Loss: 1.3651 Acc: 0.6500 | LR: 0.000206
+Epoch 036/50 | Train Loss: 0.0115 Acc: 1.0000 | Val Loss: 1.3000 Acc: 0.6500 | LR: 0.000181
+Epoch 037/50 | Train Loss: 0.0109 Acc: 1.0000 | Val Loss: 1.3494 Acc: 0.6500 | LR: 0.000158
+Epoch 038/50 | Train Loss: 0.0122 Acc: 1.0000 | Val Loss: 1.3205 Acc: 0.6500 | LR: 0.000136
+Epoch 039/50 | Train Loss: 0.0236 Acc: 1.0000 | Val Loss: 1.3084 Acc: 0.6500 | LR: 0.000115
+Epoch 040/50 | Train Loss: 0.0201 Acc: 1.0000 | Val Loss: 1.2749 Acc: 0.6500 | LR: 0.000095
+Epoch 041/50 | Train Loss: 0.0174 Acc: 1.0000 | Val Loss: 1.2581 Acc: 0.6500 | LR: 0.000078
+Epoch 042/50 | Train Loss: 0.0105 Acc: 1.0000 | Val Loss: 1.3354 Acc: 0.6500 | LR: 0.000062
+Epoch 043/50 | Train Loss: 0.0089 Acc: 1.0000 | Val Loss: 1.2860 Acc: 0.6500 | LR: 0.000048
+Epoch 044/50 | Train Loss: 0.0052 Acc: 1.0000 | Val Loss: 1.3643 Acc: 0.6500 | LR: 0.000035
+Epoch 045/50 | Train Loss: 0.0232 Acc: 1.0000 | Val Loss: 1.3915 Acc: 0.6500 | LR: 0.000024
+Epoch 046/50 | Train Loss: 0.0087 Acc: 1.0000 | Val Loss: 1.3796 Acc: 0.6500 | LR: 0.000016
+Epoch 047/50 | Train Loss: 0.0149 Acc: 1.0000 | Val Loss: 1.3906 Acc: 0.6500 | LR: 0.000009
+Epoch 048/50 | Train Loss: 0.0100 Acc: 1.0000 | Val Loss: 1.3247 Acc: 0.6500 | LR: 0.000004
+Epoch 049/50 | Train Loss: 0.0036 Acc: 1.0000 | Val Loss: 1.3163 Acc: 0.6500 | LR: 0.000001
+Epoch 050/50 | Train Loss: 0.0086 Acc: 1.0000 | Val Loss: 1.3480 Acc: 0.6500 | LR: 0.000000
+
+Done. Best val acc: 0.8000
+Saved to: /workspace/Mult-skill ACT/VC-ACT/models/exp_k10/cluster_classifier

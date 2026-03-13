@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('/workspace/Mult-skill ACT/data/each-point-V30/point1_v30/meta/stats.json'\\)\\); print\\(list\\(d.keys\\(\\)\\)\\)\")",
+      "Bash(python3 -c \"\nimport json\nd=json.load\\(open\\('/workspace/Mult-skill ACT/data/each-point-V30/point1_v30/meta/stats.json'\\)\\)\nfor k in d:\n    if 'state' in k or 'action' == k:\n        print\\(f'{k}: keys={list\\(d[k].keys\\(\\)\\)}, mean_len={len\\(d[k][\\\\\"mean\\\\\"]\\)}'\\)\")",
+      "Bash(cd \"/workspace/Mult-skill ACT/scripts\" && /venv/mult-act/bin/python3 generate_norm_constants.py)",
+      "Bash(cd \"/workspace/Mult-skill ACT/scripts\" && /venv/mult-act/bin/python3 infer_point_classifier.py --image \"/workspace/Mult-skill ACT/data/26-03-01-pick-image/point1/pick_000/frame_0000.jpg\")",
+      "Bash(cd \"/workspace/Mult-skill ACT/scripts\" && /venv/mult-act/bin/python3 infer_point_classifier.py --image \"/workspace/Mult-skill ACT/data/26-03-01-pick-image/point5/pick_000/frame_0000.jpg\")",
+      "Bash(cd \"/workspace/Mult-skill ACT/scripts\" && /venv/mult-act/bin/python3 infer_point_classifier.py --image \"/workspace/Mult-skill ACT/data/26-03-01-pick-image/point5/point5_000/frame_0000.jpg\")"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+# Data and models
+data/
+models/
+VC-ACT/models/
+
+# Nested git repos
+lerobot/.git/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+
+# Large files
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt

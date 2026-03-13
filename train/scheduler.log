@@ -1,0 +1,28 @@
+[03-01 09:25:20] Scheduler started. Queue: point4 5 6 7 8 9 10
+[03-01 10:53:21] GPU 0 finished: exp1_all_points (PID 2483296)
+[03-01 10:53:21] Started exp2_point4 on GPU 0, PID=1825259
+[03-01 11:18:51] GPU 1 finished: exp2_point1 (PID 1659719)
+[03-01 11:18:51] Started exp2_point5 on GPU 1, PID=1867655
+[03-01 11:18:51] GPU 2 finished: exp2_point2 (PID 1659847)
+[03-01 11:18:51] Started exp2_point6 on GPU 2, PID=1867659
+[03-01 11:20:21] GPU 3 finished: exp2_point3 (PID 1659969)
+[03-01 11:20:21] Started exp2_point7 on GPU 3, PID=1870923
+[03-01 13:47:52] GPU 0 finished: exp2_point4 (PID 1825259)
+[03-01 13:47:52] Started exp2_point8 on GPU 0, PID=2122551
+[03-01 14:16:52] GPU 2 finished: exp2_point6 (PID 1867659)
+[03-01 14:16:52] Started exp2_point9 on GPU 2, PID=2173014
+[03-01 14:17:52] GPU 1 finished: exp2_point5 (PID 1867655)
+[03-01 14:17:52] Started exp2_point10 on GPU 1, PID=2174895
+[03-01 14:18:22] GPU 3 finished: exp2_point7 (PID 1870923)
+[03-01 14:18:22] GPU 3 idle, queue empty
+[03-01 16:30:23] GPU 0 finished: exp2_point8 (PID 2122551)
+[03-01 16:30:23] GPU 0 idle, queue empty
+[03-01 16:52:23] GPU 2 finished: exp2_point9 (PID 2173014)
+[03-01 16:52:23] GPU 2 idle, queue empty
+[03-01 16:52:53] GPU 1 finished: exp2_point10 (PID 2174895)
+[03-01 16:52:53] GPU 1 idle, queue empty
+[03-01 16:52:53] All done!
+�，队列已空
+[2026-03-01 16:54:13] 完成: exp2_point10 on GPU 1 (PID 2174499)
+[2026-03-01 16:54:13] GPU 1 空闲，队列已空
+[2026-03-01 16:54:13] ======== 所有任务完成 ========
