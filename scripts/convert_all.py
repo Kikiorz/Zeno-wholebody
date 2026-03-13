@@ -2,7 +2,7 @@
 One-click conversion: 26-03-01-pick bags -> LeRobot V3.0 datasets
 =================================================================
 Generates two types of datasets:
-
+1
 Type A: 10 independent per-point datasets (for Experiment 2)
     data/each-point-V30/point1_v30/  ... data/each-point-V30/point10_v30/
 
