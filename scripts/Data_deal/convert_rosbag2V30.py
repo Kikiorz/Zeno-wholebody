@@ -165,29 +165,27 @@ def process_single_bag(bag_path, bag_idx, total_bags, task_label):
 
                 sl = extract_joint_positions(st_l[nearest_idx(st_l_t, t)][1])
                 sr = extract_joint_positions(st_r[nearest_idx(st_r_t, t)][1])
-                state = sl + sr
 
                 al = extract_joint_positions(ac_l[nearest_idx(ac_l_t, t)][1])
                 ar = extract_joint_positions(ac_r[nearest_idx(ac_r_t, t)][1])
-                action = al + ar
 
-                odom_vec = np.zeros(13, dtype=np.float32)
+                base_vel = np.zeros(3, dtype=np.float32)
                 if len(odom_t) > 0:
                     om = odom_msgs[nearest_idx(odom_t, t)][1]
-                    p = om.pose.pose
                     tw = om.twist.twist
-                    odom_vec[0:3] = [p.position.x, p.position.y, p.position.z]
-                    odom_vec[3:7] = [p.orientation.x, p.orientation.y, p.orientation.z, p.orientation.w]
-                    odom_vec[7:10] = [tw.linear.x, tw.linear.y, tw.linear.z]
-                    odom_vec[10:13] = [tw.angular.x, tw.angular.y, tw.angular.z]
+                    base_vel = np.array([tw.linear.x, tw.linear.y, tw.angular.z], dtype=np.float32)
+
+                # state: [base_vx, base_vy, base_omega, left_0..6, right_0..6] = 17D
+                state = np.concatenate([base_vel, np.array(sl + sr, dtype=np.float32)])
+                # action: [base_vx, base_vy, base_omega, left_0..6, right_0..6] = 17D
+                action = np.concatenate([base_vel, np.array(al + ar, dtype=np.float32)])
 
                 frames.append({
                     "observation.images.realsense_top": img_top,
                     "observation.images.realsense_left": img_left,
                     "observation.images.realsense_right": img_right,
-                    "observation.state": np.array(state, dtype=np.float32),
-                    "observation.odom": odom_vec,
-                    "action": np.array(action, dtype=np.float32),
+                    "observation.state": state,
+                    "action": action,
                     "task": task_label,
                 })
 
@@ -215,25 +213,17 @@ def main():
     features = {
         "observation.state": {
             "dtype": "float32",
-            "shape": (ARM_DOF * 2,),
-            "names": [f"left_joint_{i}" for i in range(7)]
+            "shape": (ARM_DOF * 2 + 3,),
+            "names": ["base_vx", "base_vy", "base_omega"]
+            + [f"left_joint_{i}" for i in range(7)]
             + [f"right_joint_{i}" for i in range(7)],
         },
         "action": {
             "dtype": "float32",
-            "shape": (ARM_DOF * 2,),
-            "names": [f"left_joint_{i}" for i in range(7)]
+            "shape": (ARM_DOF * 2 + 3,),
+            "names": ["base_vx", "base_vy", "base_omega"]
+            + [f"left_joint_{i}" for i in range(7)]
             + [f"right_joint_{i}" for i in range(7)],
-        },
-        "observation.odom": {
-            "dtype": "float32",
-            "shape": (13,),
-            "names": [
-                "pos_x", "pos_y", "pos_z",
-                "quat_x", "quat_y", "quat_z", "quat_w",
-                "linear_vx", "linear_vy", "linear_vz",
-                "angular_wx", "angular_wy", "angular_wz",
-            ],
         },
         "observation.images.realsense_top": {
             "dtype": "video",
