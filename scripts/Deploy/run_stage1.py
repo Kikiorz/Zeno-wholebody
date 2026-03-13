@@ -144,7 +144,7 @@ def unnormalize_action(action: np.ndarray) -> np.ndarray:
 
 
 # ====== Model loading ======
-def load_policy(ckpt_dir: str, device: str) -> ACTPolicy:
+def load_policy(ckpt_dir: str, device: str, temporal_ensemble_coeff: float = None) -> ACTPolicy:
     local_path = Path(ckpt_dir).expanduser().resolve()
     if local_path.exists():
         pretrained_path = str(local_path)
@@ -154,12 +154,20 @@ def load_policy(ckpt_dir: str, device: str) -> ACTPolicy:
         rospy.loginfo(f"Loading ACT Policy from Hugging Face: {pretrained_path}")
 
     policy = ACTPolicy.from_pretrained(pretrained_name_or_path=pretrained_path)
+
+    # Enable temporal ensembling if requested
+    if temporal_ensemble_coeff is not None:
+        from lerobot.policies.act.modeling_act import ACTTemporalEnsembler
+        policy.config.temporal_ensemble_coeff = temporal_ensemble_coeff
+        policy.temporal_ensembler = ACTTemporalEnsembler(temporal_ensemble_coeff, policy.config.chunk_size)
+
     policy = policy.to(device)
 
     rospy.loginfo("=" * 70)
     rospy.loginfo("[INFO] Stage1 Policy loaded successfully")
     rospy.loginfo(f"  chunk_size: {policy.config.chunk_size}")
     rospy.loginfo(f"  n_action_steps: {policy.config.n_action_steps}")
+    rospy.loginfo(f"  temporal_ensemble_coeff: {temporal_ensemble_coeff}")
     rospy.loginfo("=" * 70)
 
     policy.eval()
@@ -182,6 +190,8 @@ def main():
                         help="EMA smoothing alpha (0=no smoothing, 1=no history)")
     parser.add_argument("--no-smoothing", action="store_true",
                         help="Disable EMA smoothing")
+    parser.add_argument("--temporal-ensembling", type=float, default=None,
+                        help="Temporal ensemble coefficient (e.g. 0.01, default: disabled)")
 
     args, _ = parser.parse_known_args()
 
@@ -195,7 +205,7 @@ def main():
     rospy.loginfo(f"Model path: {ckpt_dir}")
 
     # Load model
-    policy = load_policy(ckpt_dir, device)
+    policy = load_policy(ckpt_dir, device, temporal_ensemble_coeff=args.temporal_ensembling)
     policy.reset()
 
     # ====== ROS Subscribers ======
