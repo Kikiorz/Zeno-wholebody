@@ -63,7 +63,7 @@ ALL_TOPICS = set(ALL_CAM_TOPICS + [
 # SETTINGS
 # ============================================================
 FPS = 30
-IMG_SIZE = (256, 256)
+IMG_SIZE = (224, 224)
 ARM_DOF = 7
 
 
