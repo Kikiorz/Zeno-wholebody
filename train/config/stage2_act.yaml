@@ -8,6 +8,7 @@ runtime:
   dry_run: false
   env:
     CUDA_VISIBLE_DEVICES: "1"
+    WANDB_NAME: "stage2_act"
 
 variables:
   dataset_root: "/workspace/Zeno-wholebody/data/Exp_stageAB"
@@ -28,7 +29,7 @@ train_args:
     use_amp: true
     n_obs_steps: 1
     chunk_size: 100
-    n_action_steps: 100
+    n_action_steps: 1
     vision_backbone: "resnet34"
     pretrained_backbone_weights: "ResNet34_Weights.IMAGENET1K_V1"
     dim_model: 512
@@ -36,14 +37,16 @@ train_args:
     n_encoder_layers: 4
     n_decoder_layers: 1
 
-  steps: 100000
-  batch_size: 32
+  steps: 200000
+  batch_size: 64
   num_workers: 8
-  save_freq: 20000
+  save_freq: 10000
   log_freq: 200
 
   wandb:
-    mode: "disabled"
+    mode: "online"
+    project: "zeno-wholebody"
+    entity: "zeno-rp"
 
   output_dir: "{output_root}/{run_name}"
 

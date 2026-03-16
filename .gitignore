@@ -3,7 +3,7 @@ data/
 models/
 model/
 VC-ACT/models/
-
+train_log/
 # Nested git repos
 lerobot/.git/
 
@@ -20,3 +20,4 @@ __pycache__/
 *.pt
 *.pth
 *.ckpt
+*.log
