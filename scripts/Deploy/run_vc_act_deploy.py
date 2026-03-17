@@ -2,7 +2,33 @@
 """
 VC-ACT 模型部署 - 基于视觉聚类的动态模型选择
 VC-ACT Policy Deployment with Visual Clustering
+● 从别的电脑下载这个模型，用以下任一方式：                                                                                               
+   
+  方式一：huggingface-cli                                                                                                                
+                  
+  pip install huggingface_hub                                                                                                            
+  huggingface-cli download QRP123/Zeno-wholebody step_100000.pt --local-dir ./                                                           
 
+  方式二：Python 代码
+
+  from huggingface_hub import hf_hub_download
+
+  hf_hub_download(
+      repo_id="QRP123/Zeno-wholebody",
+      filename="step_100000.pt",
+      local_dir="./"
+  )
+
+  方式三：git clone（需要安装 git-lfs）
+
+  git lfs install
+  git clone https://huggingface.co/QRP123/Zeno-wholebody
+
+  如果仓库是私有的，需要先登录：
+
+  huggingface-cli login
+
+  然后输入你的 HF token 就行。
 关键特性：
 1. 视觉聚类分类器：根据图像分类当前场景（cluster0-cluster9）
 2. 动态模型加载：根据分类结果加载对应的ACT策略模型
