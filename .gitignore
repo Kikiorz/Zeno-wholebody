@@ -18,7 +18,7 @@ __pycache__/
 # Large files
 *.safetensors
 *.bin
-*.pt
+
 *.pth
 *.ckpt
 *.log
