@@ -4,6 +4,7 @@ models/
 model/
 VC-ACT/models/
 train_log/
+wandb/
 # Nested git repos
 lerobot/.git/
 

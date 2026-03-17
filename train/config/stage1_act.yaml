@@ -44,11 +44,13 @@ train_args:
   log_freq: 200
 
   wandb:
+    enable: true
     mode: "online"
     project: "zeno-wholebody"
     entity: "zeno-rp"
 
   output_dir: "{output_root}/{run_name}"
+  job_name: "stage1_act"
 
 flags: []
 raw_args: []

@@ -1,24 +1,24 @@
-# Stage2 ACT Training Config
-# 用法: cd /workspace/Zeno-wholebody && python train/run_train.py --config train/config/stage2_act.yaml
+# Day3_14 ACT Training Config (all stages combined: hanger + move + move_hanger)
+# 用法: cd /workspace/Zeno-wholebody && /venv/main/bin/python3 train/run_train.py --config train/config/day3_14_act.yaml
 
 runtime:
-  command: "lerobot-train"
+  command: "/venv/main/bin/lerobot-train"
   check_command: true
   cwd: "."
   dry_run: false
   env:
     CUDA_VISIBLE_DEVICES: "1"
-    WANDB_NAME: "stage2_act"
+    WANDB_NAME: "day3_14_act"
 
 variables:
-  dataset_root: "/workspace/Zeno-wholebody/data/Exp_stageAB"
+  dataset_root: "/workspace/Zeno-wholebody/data"
   output_root: "/workspace/Zeno-wholebody/model"
-  run_name: "stage2_act"
+  run_name: "day3_14_act"
 
 train_args:
   dataset:
-    repo_id: "stage2_lerobot"
-    root: "{dataset_root}/stage2_lerobot"
+    repo_id: "day3_14"
+    root: "{dataset_root}/day3_14"
     video_backend: "torchcodec"
 
   policy:
@@ -50,7 +50,7 @@ train_args:
     entity: "zeno-rp"
 
   output_dir: "{output_root}/{run_name}"
-  job_name: "stage2_act"
+  job_name: "day3_14_act"
 
 flags: []
 raw_args: []

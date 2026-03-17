@@ -6,7 +6,11 @@
       "Bash(cd \"/workspace/Mult-skill ACT/scripts\" && /venv/mult-act/bin/python3 generate_norm_constants.py)",
       "Bash(cd \"/workspace/Mult-skill ACT/scripts\" && /venv/mult-act/bin/python3 infer_point_classifier.py --image \"/workspace/Mult-skill ACT/data/26-03-01-pick-image/point1/pick_000/frame_0000.jpg\")",
       "Bash(cd \"/workspace/Mult-skill ACT/scripts\" && /venv/mult-act/bin/python3 infer_point_classifier.py --image \"/workspace/Mult-skill ACT/data/26-03-01-pick-image/point5/pick_000/frame_0000.jpg\")",
-      "Bash(cd \"/workspace/Mult-skill ACT/scripts\" && /venv/mult-act/bin/python3 infer_point_classifier.py --image \"/workspace/Mult-skill ACT/data/26-03-01-pick-image/point5/point5_000/frame_0000.jpg\")"
+      "Bash(cd \"/workspace/Mult-skill ACT/scripts\" && /venv/mult-act/bin/python3 infer_point_classifier.py --image \"/workspace/Mult-skill ACT/data/26-03-01-pick-image/point5/point5_000/frame_0000.jpg\")",
+      "Bash(find:*)",
+      "Bash(nvidia-smi:*)",
+      "Bash(which python3:*)",
+      "Bash(python3:*)"
     ]
   }
 }
