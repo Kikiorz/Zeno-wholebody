@@ -204,10 +204,10 @@ def load_router(ckpt_path: str, device: str) -> TemporalProgressRouter:
 # ====== Router inference ======
 @torch.no_grad()
 def router_predict(router, device):
-    """Run router on current observation. Returns (probs, crossing_idx).
+    """Run router on current observation. Returns (probs, chunk_frac).
 
     probs: (100,) array of P(stage_B) for each step in the chunk.
-    crossing_idx: first index where P(B) > 0.5, or -1 if none.
+    chunk_frac: fraction of chunk steps where P(B) > 0.5 (0.0 ~ 1.0).
     """
     # Images for router (same preprocessing as ACT)
     imgs = []
@@ -222,11 +222,10 @@ def router_predict(router, device):
     logits = router(imgs, state_t)  # (1, 100)
     probs = torch.sigmoid(logits).squeeze(0).cpu().numpy()  # (100,)
 
-    # crossing_idx: first chunk step where P(B) > 0.5
-    above = np.where(probs > 0.5)[0]
-    crossing_idx = int(above[0]) if len(above) > 0 else -1
+    # chunk_frac: fraction of 100-step chunk predicting P(B) > 0.5
+    chunk_frac = float((probs > 0.5).mean())
 
-    return probs, crossing_idx
+    return probs, chunk_frac
 
 
 # ====== ACT inference ======
@@ -301,8 +300,8 @@ def main():
     active_expert = None   # "A" or "B", determined by START signal
     switched = False       # True after the one-time A→B switch
     step_count = 0
-    crossing_zero_count = 0  # consecutive steps where crossing_idx == 0
-    SWITCH_CONFIRM_STEPS = 50  # need 50 consecutive crossing_idx==0 to trigger switch
+    unanimous_count = 0    # consecutive steps where chunk is 100% B
+    SWITCH_CONFIRM_STEPS = 15  # need 15 consecutive unanimous chunks (~0.5s @30Hz)
     global smoothed_action
 
     while not rospy.is_shutdown():
@@ -318,35 +317,35 @@ def main():
         state_raw = build_state_17d()
 
         # ── Router inference (every step) ──
-        probs, crossing_idx = router_predict(router, device)
+        probs, chunk_frac = router_predict(router, device)
         p0 = probs[0]
 
         # ── START signal: determine initial expert on first observation ──
         if active_expert is None:
-            if p0 > 0.5:
+            if chunk_frac >= 1.0:
                 active_expert = "B"
                 switched = True  # already in B, no switch needed
-                rospy.loginfo(f"[START] p[0]={p0:.3f} > 0.5 → starting with StageB (move)")
+                rospy.loginfo(f"[START] chunk_frac={chunk_frac:.2f} → starting with StageB (move)")
             else:
                 active_expert = "A"
-                rospy.loginfo(f"[START] p[0]={p0:.3f} <= 0.5 → starting with StageA (hanger)")
+                rospy.loginfo(f"[START] chunk_frac={chunk_frac:.2f}, p[0]={p0:.3f} → starting with StageA (hanger)")
 
-        # ── SWITCH signal: need 50 consecutive steps with crossing_idx==0 ──
+        # ── SWITCH signal: chunk全票 (frac==1.0) sustained for 15 steps ──
         if not switched and active_expert == "A":
-            if crossing_idx == 0:
-                crossing_zero_count += 1
+            if chunk_frac >= 1.0:
+                unanimous_count += 1
             else:
-                crossing_zero_count = 0
+                unanimous_count = 0
 
-            if crossing_zero_count >= SWITCH_CONFIRM_STEPS:
+            if unanimous_count >= SWITCH_CONFIRM_STEPS:
                 active_expert = "B"
                 switched = True
                 smoothed_action = {"left": None, "right": None, "base": None}
                 policy_b.reset()
                 rospy.loginfo("=" * 70)
                 rospy.loginfo(
-                    f"[SWITCH] crossing_idx==0 confirmed for {SWITCH_CONFIRM_STEPS} steps, "
-                    f"p[0]={p0:.3f} → switching to StageB (move)"
+                    f"[SWITCH] chunk 100%% B for {SWITCH_CONFIRM_STEPS} steps, "
+                    f"p[0]={p0:.3f} chunk_frac={chunk_frac:.2f} → switching to StageB"
                 )
                 rospy.loginfo("=" * 70)
 
@@ -369,10 +368,9 @@ def main():
 
         # ── Logging ──
         if step_count % 30 == 1:
-            cx_str = str(crossing_idx) if crossing_idx >= 0 else "none"
             rospy.loginfo(
                 f"[Step {step_count}] expert={active_expert} switched={switched} "
-                f"p[0]={p0:.3f} crossing_idx={cx_str} confirm={crossing_zero_count}/{SWITCH_CONFIRM_STEPS}"
+                f"p[0]={p0:.3f} chunk_frac={chunk_frac:.2f} confirm={unanimous_count}/{SWITCH_CONFIRM_STEPS}"
             )
 
         # ── EMA smoothing ──
